@@ -1,42 +1,60 @@
 # Brain Tumor Detection
+
 A machine learning project using Resnet-18 for brain tumor detection and Grad-CAM for visualization.
 
 ## Overview
+
 This project aims to detect brain tumors from MRI images using a Resnet-18 model for classification and Grad-CAM for visual explanations of the predictions.
 
 ## Table of Contents
-### Introduction
-### Dataset
-### Model
-### Training
-### Evaluation
-### Visualization
-### Usage
-### Contributing
-### License
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Dataset](#dataset)
+- [Model](#model)
+- [Training](#training)
+- [Evaluation](#evaluation)
+- [Visualization](#visualization)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Introduction
+
 Brain tumor detection is a critical task in medical diagnosis. This project leverages deep learning and computer vision techniques to accurately identify the presence of tumors in brain MRI images.
-Dataset
+
+## Installation
+
+Instructions to install the necessary packages.
+
+## Dataset
+
 The dataset used in this project consists of brain MRI images labeled with the presence or absence of tumors. Ensure the dataset is structured as follows:
-brain_tumor
-│
-├── train
-│   ├── yes
-│   └── no
-│
-└── val
-    ├── yes
-    └── no
-Model
-Architecture
+### brain_tumor
+### │
+### ├── train
+### │ ├── yes
+### │ └── no
+### │
+### └── val
+### ├── yes
+### └── no
+
+
+## Model
+
+### Architecture
+
 The model architecture is based on Resnet-18, a powerful convolutional neural network commonly used for image classification tasks.
 
-Training
+## Training
+
 The model was trained using PyTorch on the brain MRI dataset. Training parameters such as learning rate, batch size, and the number of epochs are specified in the notebook.
+
+```python
 model = models.resnet18(pretrained=True)
 num_ftrs = model.fc.in_features
 model.fc = nn.Linear(num_ftrs, 2)
-The model is trained using the following loop:
 num_epochs = 5
 best_acc = 0.0
 for epoch in range(num_epochs):
@@ -88,8 +106,10 @@ for epoch in range(num_epochs):
         best_acc = accuracy
         torch.save(model.state_dict(), 'best_model.pth')
         print("Best model saved")
-Evaluation
+```
+## Evaluation
 Evaluate the model using confusion matrix and classification report:
+```python
 from sklearn.metrics import confusion_matrix, classification_report
 
 def evaluate_model(model, dataloaders, device):
@@ -115,8 +135,10 @@ print('Confusion Matrix:')
 print(cm)
 print('Classification Report:')
 print(report)
-Visualization
+```
+## Visualization
 Visualize the model's focus using Grad-CAM:
+```
 def grad_cam(model, img_tensor, target_layer):
     model.eval()
     img_tensor = img_tensor.unsqueeze(0).to(device)
@@ -192,8 +214,10 @@ target_layer = model.layer4[1].conv2
 cam, target_class = grad_cam(model, img_tensor, target_layer)
 
 visualize_cam(cam, sample_image_path)
-Usage
+```
+## Usage
 To predict a new image, use the predict_image function:
+```
 model.load_state_dict(torch.load('best_model.pth'))
 
 def predict_image(model, image_path, preprocess, target_layer):
@@ -217,9 +241,14 @@ image_path1 = r"D:\ml\brain tumor new data\train\yes\p (30).jpg"  # yes
 image_path2 = r"D:\ml\brain tumor new data\test\no\image(5).jpg"  # no
 predict_image(model, image_path1, preprocess, target_layer)
 predict_image(model, image_path2, preprocess, target_layer)
-Contributing
+```
+## Contributing
 Contributions are welcome! If you have any improvements or suggestions, feel free to open a pull request or issue.
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+
+
 
