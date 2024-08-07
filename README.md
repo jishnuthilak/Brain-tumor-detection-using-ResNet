@@ -1,21 +1,20 @@
 # Brain Tumor Detection
-# A machine learning project using Resnet-18 for brain tumor detection and Grad-CAM for visualization.
+A machine learning project using Resnet-18 for brain tumor detection and Grad-CAM for visualization.
 
-Overview
+## Overview
 This project aims to detect brain tumors from MRI images using a Resnet-18 model for classification and Grad-CAM for visual explanations of the predictions.
 
-Table of Contents
-Introduction
-Installation
-Dataset
-Model
-Training
-Evaluation
-Visualization
-Usage
-Contributing
-License
-Introduction
+## Table of Contents
+### Introduction
+### Dataset
+### Model
+### Training
+### Evaluation
+### Visualization
+### Usage
+### Contributing
+### License
+## Introduction
 Brain tumor detection is a critical task in medical diagnosis. This project leverages deep learning and computer vision techniques to accurately identify the presence of tumors in brain MRI images.
 Dataset
 The dataset used in this project consists of brain MRI images labeled with the presence or absence of tumors. Ensure the dataset is structured as follows:
