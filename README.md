@@ -215,7 +215,7 @@ cam, target_class = grad_cam(model, img_tensor, target_layer)
 
 visualize_cam(cam, sample_image_path)
 ```
-![Brain Tumor](path/to/your/image.jpg)
+![Brain Tumor](image.png)
 ## Usage
 To predict a new image, use the predict_image function:
 ```
