@@ -1,5 +1,5 @@
-#Brain Tumor Detection
-#A machine learning project using Resnet-18 for brain tumor detection and Grad-CAM for visualization.
+# Brain Tumor Detection
+# A machine learning project using Resnet-18 for brain tumor detection and Grad-CAM for visualization.
 
 Overview
 This project aims to detect brain tumors from MRI images using a Resnet-18 model for classification and Grad-CAM for visual explanations of the predictions.
